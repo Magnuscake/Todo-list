@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import TodoList from './TodoList';
+import TodoInput from './TodoInput';
+import './styles/App.css';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      todos: ['task 1', 'task 2', 'task 3'],
+    };
+  }
+
+  onFormSubmit = (newTask) => {
+    this.setState({ todos: [...this.state.todos, newTask] });
+  };
+
+  onDelete = (index) => {
+    const array = [...this.state.todos];
+    array.splice(index, 1);
+    this.setState({ todos: array });
+  };
+
+  render() {
+    return (
+      <div className="wrapper">
+        <TodoList todos={this.state.todos} onDelete={this.onDelete} />
+        <TodoInput onFormSubmit={this.onFormSubmit} />
+      </div>
+    );
+  }
 }
 
 export default App;

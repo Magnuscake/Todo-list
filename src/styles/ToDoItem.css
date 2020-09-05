@@ -1,0 +1,18 @@
+.item {
+  min-width: 350px;
+  height: 40px;
+  margin-bottom: 15px;
+  background: whitesmoke;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: 'Verdana';
+  text-align: center;
+  line-height: 40px;
+  transition: all 0.2s ease;
+}
+
+.item:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #ec0101;
+}
