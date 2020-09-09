@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './styles/ToDoItem.css';
+import '../styles/ToDoItem.css';
 
 const TodoItem = ({ item, onDelete, id }) => {
   return (
